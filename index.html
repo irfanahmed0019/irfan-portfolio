@@ -42,10 +42,10 @@
   .neo-root section .mb-10 > .border-t { margin-top: 20px; }
   #skills .flex-wrap { gap: 10px; }
   #skills .flex-wrap > div > span { padding: 10px 14px; font-size: 12px; border-width: 1px !important; }
-  #showcase .neo-marquee-track { animation: none; width: max-content; }
-  #showcase .overflow-hidden:has(> .neo-marquee-track) { overflow-x: auto; margin-inline: -20px; padding-inline: 20px; padding-bottom: 12px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-  #showcase .neo-marquee-track > [aria-hidden] { display: none; }
-  #showcase .neo-marquee-track .relative { width: 78vw; max-width: 380px; scroll-snap-align: center; border-width: 2px !important; }
+  #showcase .neo-marquee-track { width: max-content; animation: neo-marquee 40s linear infinite !important; will-change: transform; }
+  #showcase .neo-marquee-track:active { animation-play-state: paused !important; }
+  #showcase .overflow-hidden:has(> .neo-marquee-track) { overflow: hidden; margin-inline: -20px; padding-bottom: 12px; touch-action: pan-y; }
+  #showcase .neo-marquee-track .relative { width: 78vw; max-width: 380px; border-width: 2px !important; }
   #projects .rounded-3xl, #experience .rounded-3xl, #achievements .rounded-3xl { border-width: 1px !important; border-color: #1c19172e !important; border-radius: 22px; padding: 18px; background: #fff !important; box-shadow: 0 8px 28px #1c191708; }
   #projects .flex-col.gap-8 { gap: 24px; }
   #projects .grid { gap: 20px; }
@@ -79,6 +79,9 @@
 }
 @media (max-width: 767px) and (prefers-reduced-motion: reduce) {
   .neo-root *, .neo-root *::before, .neo-root *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  #showcase .overflow-hidden:has(> .neo-marquee-track) { overflow-x: auto; padding-inline: 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; touch-action: auto; }
+  #showcase .neo-marquee-track > [aria-hidden] { display: none; }
+  #showcase .neo-marquee-track .relative { scroll-snap-align: center; }
 }
 </style>
 </head>
